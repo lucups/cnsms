@@ -1,10 +1,10 @@
 <?php
 
-namespace Lucups\Sms\Channel;
+namespace Lucups\Cnsms\Channel;
 
-use Lucups\Sms\Channel\Aliyun\AliyunSmsClient;
-use Lucups\Sms\Exception\SmsException;
-use Lucups\Sms\Util\SmsLog;
+use Lucups\Cnsms\Channel\Aliyun\AliyunSmsClient;
+use Lucups\Cnsms\Exception\SmsException;
+use Lucups\Cnsms\Util\SmsLog;
 
 class SmsChannel
 {

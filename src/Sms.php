@@ -1,12 +1,12 @@
 <?php
 
-namespace Lucups\Sms;
+namespace Lucups\Cnsms;
 
-use Lucups\Sms\Base\AbstractSmsClient;
-use Lucups\Sms\Channel\SmsChannel;
-use Lucups\Sms\Exception\SmsException;
-use Lucups\Sms\Util\SmsLog;
-use Lucups\Sms\Util\Utils;
+use Lucups\Cnsms\Base\AbstractSmsClient;
+use Lucups\Cnsms\Channel\SmsChannel;
+use Lucups\Cnsms\Exception\SmsException;
+use Lucups\Cnsms\Util\SmsLog;
+use Lucups\Cnsms\Util\Utils;
 
 /**
  * SMS

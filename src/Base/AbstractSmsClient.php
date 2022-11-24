@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucups\Sms\Base;
+namespace Lucups\Cnsms\Base;
 
 abstract class AbstractSmsClient
 {

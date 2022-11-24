@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucups\Sms\Util;
+namespace Lucups\Cnsms\Util;
 
 class Utils
 {

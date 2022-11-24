@@ -5,7 +5,7 @@
 ### 安装
 
 ```shell
-composer require lucups/psms
+composer require lucups/cnsms
 ```
 
 ### 使用
@@ -13,7 +13,7 @@ composer require lucups/psms
 阿里云短信服务:
 
 ```php
-use Lucups\Psms\Sms;
+use Lucups\Cnsms\Sms;
 
 // 配置
 Sms::init([

@@ -1,9 +1,9 @@
 <?php
 
-namespace Lucups\Sms\Util;
+namespace Lucups\Cnsms\Util;
 
-use Lucups\Sms\Exception\SmsException;
-use Lucups\Sms\Sms;
+use Lucups\Cnsms\Exception\SmsException;
+use Lucups\Cnsms\Sms;
 
 class SmsLog
 {

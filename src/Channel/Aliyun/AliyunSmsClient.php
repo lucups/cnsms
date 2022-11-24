@@ -1,9 +1,9 @@
 <?php
 
-namespace Lucups\Sms\Channel\Aliyun;
+namespace Lucups\Cnsms\Channel\Aliyun;
 
-use Lucups\Sms\Base\AbstractSmsClient;
-use Lucups\Sms\Util\SmsLog;
+use Lucups\Cnsms\Base\AbstractSmsClient;
+use Lucups\Cnsms\Util\SmsLog;
 
 class AliyunSmsClient extends AbstractSmsClient
 {

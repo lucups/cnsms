@@ -1,10 +1,10 @@
 {
-    "name": "lucups/sms",
-    "description": "A simple SMS toolkit without any third party dependencies.",
+    "name": "lucups/cnsms",
+    "description": "A simple SMS toolkit without any third party dependencies, only for China.",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Lucups\\Sms\\": "src/"
+            "Lucups\\Cnsms\\": "src/"
         }
     },
     "authors": [
