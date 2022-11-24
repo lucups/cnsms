@@ -1,0 +1,21 @@
+{
+    "name": "lucups/sms",
+    "description": "A simple SMS toolkit without any third party dependencies.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lucups\\Sms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tony Lu",
+            "email": "lucups@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "ext-curl": "*",
+        "ext-json": "*"
+    }
+}
