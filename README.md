@@ -1,6 +1,28 @@
-# 短信工具库
+# 极简短信工具库
 
-最简单的短信发送工具库，适应中国国情。
+适应中国国情的极简短信工具库，无任何第三方依赖包。
+
+### 安装
+
+```shell
+composer require lucups/psms
+```
+
+### 使用
+
+阿里云短信服务:
+
+```php
+use Lucups\Psms\Sms;
+
+Sms::init([
+    'channel'         => 'aliyun', 
+    'accessKeyId'     => 'xxxxxxxxxxxxxxxxxx',
+    'accessKeySecret' => 'xxxxxxxxxxxxxxxxxx',
+    'signName'        => '某某科技',
+]);
+Sms::send('18888888888', 'YOUR_SMS_TPL_ID', ['code' => '123456']);
+```
 
 ### 短信渠道支持 Roadmap
 
