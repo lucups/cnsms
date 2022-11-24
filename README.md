@@ -15,13 +15,19 @@ composer require lucups/psms
 ```php
 use Lucups\Psms\Sms;
 
+// 配置
 Sms::init([
     'channel'         => 'aliyun', 
     'accessKeyId'     => 'xxxxxxxxxxxxxxxxxx',
     'accessKeySecret' => 'xxxxxxxxxxxxxxxxxx',
     'signName'        => '某某科技',
 ]);
+
+// 单个号码发送
 Sms::send('18888888888', 'YOUR_SMS_TPL_ID', ['code' => '123456']);
+
+// 多个号码
+Sms::send(['18888888888', '17777777777'], 'YOUR_SMS_TPL_ID', ['code' => '123456']);
 ```
 
 ### 短信渠道支持 Roadmap
