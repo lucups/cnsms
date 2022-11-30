@@ -1,8 +1,8 @@
 # CNSMS 极简短信工具库
 
-A simple SMS toolkit without any third party dependencies, only for China.
-
 适应中国国情的极简短信工具库，无任何第三方依赖包。
+
+A simple SMS toolkit without any third party dependencies, only for China.
 
 ### 安装
 
