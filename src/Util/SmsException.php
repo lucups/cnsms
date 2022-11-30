@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucups\Cnsms\Exception;
+namespace Lucups\Cnsms\Util;
 
 class SmsException extends \RuntimeException
 {

@@ -3,8 +3,8 @@
 namespace Lucups\Cnsms;
 
 use Lucups\Cnsms\Base\AbstractSmsClient;
-use Lucups\Cnsms\Channel\SmsChannel;
-use Lucups\Cnsms\Exception\SmsException;
+use Lucups\Cnsms\Util\ClientUtils;
+use Lucups\Cnsms\Util\SmsException;
 use Lucups\Cnsms\Util\SmsLog;
 use Lucups\Cnsms\Util\Utils;
 
@@ -18,47 +18,21 @@ class Sms
      */
     private static $SMS_CLIENT = null;
 
-    /**
-     * @param array|null $config
-     * @return void
-     */
-    public static function init($config = null)
+
+    public static function create($config = null)
     {
         if (empty(self::$SMS_CLIENT)) {
-            $useEnv = false;
-            if (empty($config)) {
-                $channel     = Utils::safeGet($_ENV, 'SMS_CHANNEL');
-                $logfilePath = Utils::safeGet($_ENV, 'SMS_LOGFILE_PATH');
-                $logFlag     = (bool)Utils::safeGet($_ENV, 'SMS_LOG_FLAG');
-                $useEnv      = true;
-            } else {
-                $channel     = Utils::safeGet($config, 'channel');
-                $logfilePath = Utils::safeGet($config, 'logfilePath');
-                $logFlag     = (bool)Utils::safeGet($config, 'logFlag');
-            }
+            $channel     = strtolower(Utils::safeGet($config, 'channel'));
+            $logfilePath = Utils::safeGet($config, 'logfilePath');
+            $logFlag     = (bool)Utils::safeGet($config, 'logFlag', false);
+
             if (empty($channel)) {
                 throw new SmsException('Invalid init data.');
             }
             SmsLog::initLogFilePath($logfilePath, $logFlag);
-            self::$SMS_CLIENT = SmsChannel::initClient($channel, $useEnv, $config);
+            self::$SMS_CLIENT = ClientUtils::createClient($channel, $config);
         }
+        return self::$SMS_CLIENT;
     }
 
-    /**
-     * @param array|string $phone 如果是多个手机号码，需要使用数组传入
-     * @param string $tplId 短信模板ID
-     * @param array $data 模块数据
-     * @return void
-     */
-    public static function send($phone, $tplId, $data = [])
-    {
-        if (empty(self::$SMS_CLIENT)) {
-            self::init(); // try to init
-        }
-        if (self::$SMS_CLIENT instanceof AbstractSmsClient) {
-            self::$SMS_CLIENT->send($phone, $tplId, $data);
-        } else {
-            throw new SmsException('Sms Client is not a instance of AbstractSmsClient.');
-        }
-    }
 }

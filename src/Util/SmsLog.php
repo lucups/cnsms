@@ -2,8 +2,6 @@
 
 namespace Lucups\Cnsms\Util;
 
-use Lucups\Cnsms\Exception\SmsException;
-
 class SmsLog
 {
     const LOG_FILE_NAME  = 'cnsms.log';
@@ -43,7 +41,7 @@ class SmsLog
         }
 
         $prefix = date(self::DATETIME_STYLE) . ' ' . $level . ' ';
-        file_put_contents($prefix . self::$LOGFILE_PATH, $text . "\n", FILE_APPEND);
+        file_put_contents(self::$LOGFILE_PATH, $prefix . $text . "\n", FILE_APPEND);
     }
 
     public static function info($text)

@@ -17,19 +17,18 @@ composer require lucups/cnsms
 ```php
 use Lucups\Cnsms\Sms;
 
-// 配置
-Sms::init([
-    'channel'         => 'aliyun', 
-    'accessKeyId'     => 'xxxxxxxxxxxxxxxxxx',
-    'accessKeySecret' => 'xxxxxxxxxxxxxxxxxx',
-    'signName'        => '某某科技',
-]);
+require_once __DIR__ . '/vendor/autoload.php';
 
-// 单个号码发送
-Sms::send('18888888888', 'YOUR_SMS_TPL_ID', ['code' => '123456']);
+$config = [
+    'channel'         => 'Aliyun',
+    'logFlag'         => true,
+    'logfilePath'     => '/tmp/cnsms.log',
+    'accessKeyId'     => 'xxxxxxx',
+    'accessKeySecret' => 'xxxxxxx',
+    'signName'        => 'xxx',
+];
 
-// 多个号码
-Sms::send(['18888888888', '17777777777'], 'YOUR_SMS_TPL_ID', ['code' => '123456']);
+Sms::create($config)->send('1340000000', 'SMS_12345678', ['code' => '666888']);
 ```
 
 ### 短信渠道支持 Roadmap
