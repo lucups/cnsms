@@ -21,14 +21,23 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $config = [
     'channel'         => 'Aliyun',
-    'logFlag'         => true,
-    'logfilePath'     => '/tmp/cnsms.log',
     'accessKeyId'     => 'xxxxxxx',
     'accessKeySecret' => 'xxxxxxx',
     'signName'        => 'xxx',
 ];
 
 Sms::create($config)->send('1340000000', 'SMS_12345678', ['code' => '666888']);
+
+// 完整配置
+$config = [
+    'channel'         => 'Aliyun',
+    'logFlag'         => true,
+    'logfilePath'     => '/tmp/cnsms.log',
+    'accessKeyId'     => 'xxxxxxx',
+    'accessKeySecret' => 'xxxxxxx',
+    'signName'        => 'xxx',
+    'regionId'        => 'cn-shanghai'
+];
 ```
 
 ### 短信渠道支持 Roadmap
