@@ -3,15 +3,12 @@
 namespace Lucups\Cnsms\Util;
 
 use Lucups\Cnsms\Client\AliyunSmsClient;
+use Lucups\Cnsms\Sms;
 
 class ClientUtils
 {
-    const CHANNEL_ALIYUN  = 'aliyun';  // 阿里云短信服务
-    const CHANNEL_TENCENT = 'tencent'; // 腾讯云短信服务
-    const CHANNEL_SMSBAO  = 'smsbao';  // 短信宝
-
     const AVAILABLE_CHANNELS = [
-        self::CHANNEL_ALIYUN,
+        Sms::CHANNEL_ALIYUN,
     ];
 
     public static function createClient($channel, $config)
@@ -23,7 +20,7 @@ class ClientUtils
         }
 
         switch ($channel) {
-            case self::CHANNEL_ALIYUN:
+            case Sms::CHANNEL_ALIYUN:
 
                 // todo exception
                 $accessKeyId     = Utils::safeGet($config, 'accessKeyId');
@@ -32,8 +29,8 @@ class ClientUtils
                 $regionId        = Utils::safeGet($config, 'regionId', 'cn-shanghai');
 
                 return new AliyunSmsClient($accessKeyId, $accessKeySecret, $signName, $regionId);
-            case self::CHANNEL_TENCENT:
-            case self::CHANNEL_SMSBAO:
+            case Sms::CHANNEL_TENCENT:
+            case Sms::CHANNEL_SMSBAO:
                 $errMsg = 'Channel [' . $channel . '] does not support now.';
                 SmsLog::error($errMsg);
                 throw new SmsException($errMsg);

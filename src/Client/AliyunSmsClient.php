@@ -30,8 +30,12 @@ class AliyunSmsClient implements SmsClient
         $this->regionId        = $regionId;
     }
 
-    public function send($phone, $templateCode, $data)
+    public function send($phone, string $templateCode, array $data): array
     {
+        if (is_array($phone)) {
+            $phone = implode(',', $phone);
+        }
+
         SmsLog::info('Send to ' . $phone . ' with templateCode = ' . $templateCode . ', data is: ' . json_encode($data));
 
         $params = [
@@ -52,9 +56,19 @@ class AliyunSmsClient implements SmsClient
 
         $params['Signature'] = $this->computeSignature($params);
 
-        $result = $this->_request($params);
-        print_r($result);
-        print_r('Send ok');
+        $response = $this->_request($params);
+        $respData = json_decode($response, true);
+        if ($respData['Code'] === 'OK') {
+            return [
+                'success' => true,
+                'extra'   => $respData,
+            ];
+        }
+
+        return [
+            'success' => false,
+            'message' => 'failed', // todo return error message
+        ];
     }
 
     private function computeSignature($parameters)
@@ -74,9 +88,7 @@ class AliyunSmsClient implements SmsClient
         $res = urlencode($str);
         $res = preg_replace('/\+/', '%20', $res);
         $res = preg_replace('/\*/', '%2A', $res);
-        $res = preg_replace('/%7E/', '~', $res);
-
-        return $res;
+        return preg_replace('/%7E/', '~', $res);
     }
 
     protected function getTempDataString(array $data)
@@ -88,7 +100,7 @@ class AliyunSmsClient implements SmsClient
         return json_encode($data);
     }
 
-    private function _request($params): array
+    private function _request($params): string
     {
         $ch = curl_init();
 
@@ -110,6 +122,6 @@ class AliyunSmsClient implements SmsClient
         }
         curl_close($ch);
 
-        return compact('request', 'response');
+        return $response;
     }
 }

@@ -10,8 +10,12 @@ use Lucups\Cnsms\Util\SmsLog;
  */
 class TencentSmsClient implements SmsClient
 {
-    public function send($phone, $templateCode, $data)
+    public function send($phone, string $templateCode, array $data): array
     {
         SmsLog::info('Send to ' . $phone . ' with templateCode = ' . $templateCode . ', data is: ' . json_encode($data));
+
+        // todo 待实现
+
+        return [];
     }
 }
