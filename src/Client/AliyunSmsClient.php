@@ -57,17 +57,22 @@ class AliyunSmsClient implements SmsClient
         $params['Signature'] = $this->computeSignature($params);
 
         $response = $this->_request($params);
+        SmsLog::info('Send result: ' . $response);
+
         $respData = json_decode($response, true);
-        if ($respData['Code'] === 'OK') {
+        if (empty($respData)) {
+            $message = '阿里云返回非JSON: ' . $response;
+        } else if ($respData['Code'] === 'OK') {
             return [
                 'success' => true,
                 'extra'   => $respData,
             ];
+        } else {
+            $message = $respData[''];
         }
-
         return [
             'success' => false,
-            'message' => 'failed', // todo return error message
+            'message' => $message, // todo return error message
         ];
     }
 

@@ -5,7 +5,7 @@ namespace Lucups\Cnsms\Client;
 use Lucups\Cnsms\Util\SmsLog;
 
 /**
- * 腾讯云短信
+ * todo 腾讯云短信
  * @see https://cloud.tencent.com/document/api/382/55981
  */
 class TencentSmsClient implements SmsClient

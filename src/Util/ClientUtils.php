@@ -7,6 +7,11 @@ use Lucups\Cnsms\Sms;
 
 class ClientUtils
 {
+    /**
+     * @deprecated 下一个大版本将会移除
+     */
+    const CHANNEL_ALIYUN = 'aliyun';
+
     const AVAILABLE_CHANNELS = [
         Sms::CHANNEL_ALIYUN,
     ];
