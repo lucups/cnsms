@@ -6,7 +6,7 @@
 
 ## 介绍
 
-适应中国大陆国情的极简短信工具库，无任何第三方依赖包，适用于发送验证码短信、通知短信等场景。
+适应中国大陆国情的极简短信工具库，除 `ext-curl`、`ext-json` 等大家都会用到的 PECL 扩展库外无任何第三方依赖包，适用于发送验证码短信、通知短信等场景。
 
 A simple SMS toolkit without any third party dependencies, only for the Chinese Mainland.
 
