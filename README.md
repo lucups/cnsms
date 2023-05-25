@@ -1,8 +1,15 @@
 # CNSMS 极简短信工具库
 
-适应中国国情的极简短信工具库，无任何第三方依赖包。
+> 我就发个验证码，给我整那么活干啥...
+>
+> —— 本项目的 Slogan
 
-A simple SMS toolkit without any third party dependencies, only for China.
+适应中国大陆国情的极简短信工具库，无任何第三方依赖包，适用于发送验证码短信、通知短信等场景。
+
+A simple SMS toolkit without any third party dependencies, only for the Chinese Mainland.
+
+- [GitHub](https://github.com/lucups/cnsms)
+- [提交BUG](https://github.com/lucups/cnsms/issues/new)
 
 ### 安装
 
