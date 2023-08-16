@@ -2,6 +2,10 @@
 
 namespace Lucups\Cnsms\Client;
 
+/**
+ * 短信宝
+ * @see https://www.smsbao.com/openapi/213.html
+ */
 class SmsBaoClient implements SmsClient
 {
     private $username;
@@ -33,7 +37,7 @@ class SmsBaoClient implements SmsClient
             "50" => "内容含有敏感词",
         ];
 
-        $smsapi     = "http://api.smsbao.com/";
+        $smsapi     = "https://api.smsbao.com/";
         $user       = $this->username;          //短信平台帐号
         $pass       = md5($this->password);     //短信平台密码
         $content    = $templateCode;            //要发送的短信内容
