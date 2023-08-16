@@ -12,5 +12,5 @@ interface SmsClient
      * @param array $data
      * @return array
      */
-    function send($phone, string $templateCode, array $data): array;
+    function send($phone, string $templateCode, array $data = []): array;
 }

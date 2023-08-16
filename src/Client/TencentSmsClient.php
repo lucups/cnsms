@@ -29,7 +29,7 @@ class TencentSmsClient implements SmsClient
         $this->region   = $region;
     }
 
-    public function send($phone, string $templateCode, array $data, $sessionContext = 'test'): array
+    public function send($phone, string $templateCode, array $data = [], $sessionContext = 'test'): array
     {
         SmsLog::info('Send to ' . $phone . ' with templateCode = ' . $templateCode . ', data is: ' . json_encode($data));
 

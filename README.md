@@ -64,11 +64,24 @@ $config = [
 Sms::create($config)->send('1340000000', '178888', ['12345']);
 ```
 
+### 短信宝
+
+```php
+$config = [
+    'channel'     => Sms::CHANNEL_SMSBAO,
+    'logFlag'     => true,
+    'logfilePath' => '/tmp/cnsms.log',
+    'username'    => 'xxxxx', // 登录账号
+    'password'    => 'xxxxx', // 登录密码
+];
+Sms::create($config)->send('1340000000', '【测试账号】您的短信验证码是123456 ，在10分钟内有效。');
+```
+
 ## 短信渠道支持 Roadmap
 
 - [x] [阿里云短信服务](https://www.aliyun.com/product/sms)
 - [x] [腾讯云短信 SMS](https://cloud.tencent.com/product/sms)
-- [ ] [短信宝](https://www.smsbao.com/)
+- [x] [短信宝](https://www.smsbao.com/)
 
 ## 注意事项
 

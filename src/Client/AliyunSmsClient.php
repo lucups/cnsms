@@ -30,7 +30,7 @@ class AliyunSmsClient implements SmsClient
         $this->regionId        = $regionId;
     }
 
-    public function send($phone, string $templateCode, array $data): array
+    public function send($phone, string $templateCode, array $data = []): array
     {
         if (is_array($phone)) {
             $phone = implode(',', $phone);
