@@ -49,8 +49,6 @@ class TencentSmsClient implements SmsClient
             "SessionContext"   => $sessionContext,
         ];
 
-        print_r($payloadObj);
-
         $payload = json_encode($payloadObj);
 
         $hashedRequestPayload = hash("SHA256", $payload);
