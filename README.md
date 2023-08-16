@@ -21,7 +21,7 @@ composer require lucups/cnsms
 
 ## 使用
 
-阿里云短信服务:
+### 阿里云短信服务
 
 ```php
 use Lucups\Cnsms\Sms;
@@ -49,10 +49,25 @@ $config = [
 ];
 ```
 
+### 腾讯云短信服务
+
+```php
+$config = [
+    'channel'     => Sms::CHANNEL_TENCENT,
+    'logFlag'     => true,
+    'logfilePath' => '/tmp/cnsms.log',
+    'secretId'    => 'xxxxxxx',
+    'secKey'      => 'xxxxxxx',
+    'appId'       => 'xxx',
+    'signName'    => 'xxx',
+];
+Sms::create($config)->send('1340000000', '178888', ['12345']);
+```
+
 ## 短信渠道支持 Roadmap
 
 - [x] [阿里云短信服务](https://www.aliyun.com/product/sms)
-- [ ] [腾讯云短信 SMS](https://cloud.tencent.com/product/sms)
+- [x] [腾讯云短信 SMS](https://cloud.tencent.com/product/sms)
 - [ ] [短信宝](https://www.smsbao.com/)
 
 ## 注意事项
