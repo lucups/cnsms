@@ -73,6 +73,7 @@ $config = [
     'logfilePath' => '/tmp/cnsms.log',
     'username'    => 'xxxxx', // 登录账号
     'password'    => 'xxxxx', // 登录密码
+    'apiKey'      => 'xxxxx', // 接口密钥（密码密钥二选一，请求的时候密码会被md5处理，apiKey 不会）
 ];
 Sms::create($config)->send('1340000000', '【测试账号】您的短信验证码是123456 ，在10分钟内有效。');
 ```

@@ -50,7 +50,8 @@ class ClientUtils
             case Sms::CHANNEL_SMSBAO:
                 $username = Utils::safeGet($config, 'username');
                 $password = Utils::safeGet($config, 'password');
-                return new SmsBaoClient($username, $password);
+                $apiKey   = Utils::safeGet($config, 'apiKey');
+                return new SmsBaoClient($username, $password, $apiKey);
         }
     }
 }

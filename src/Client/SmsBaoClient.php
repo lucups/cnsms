@@ -10,11 +10,13 @@ class SmsBaoClient implements SmsClient
 {
     private $username;
     private $password;
+    private $apiKey;
 
-    public function __construct($username, $password)
+    public function __construct($username, $password, $apiKey = null)
     {
         $this->username = $username;
         $this->password = $password;
+        $this->apiKey   = $apiKey;
     }
 
     /**
@@ -38,9 +40,9 @@ class SmsBaoClient implements SmsClient
         ];
 
         $smsapi     = "https://api.smsbao.com/";
-        $user       = $this->username;          //短信平台帐号
-        $pass       = md5($this->password);     //短信平台密码
-        $content    = $templateCode;            //要发送的短信内容
+        $user       = $this->username;                                                   //短信平台帐号
+        $pass       = empty($this->password) ? $this->apiKey : md5($this->password);     //短信平台密码
+        $content    = $templateCode;                                                     //要发送的短信内容
         $sendurl    = $smsapi . "sms?u=" . $user . "&p=" . $pass . "&m=" . $phone . "&c=" . urlencode($content);
         $resultCode = file_get_contents($sendurl);
         return ['code' => $resultCode, 'msg' => $statusMap[$resultCode]];
