@@ -15,11 +15,11 @@ A simple SMS toolkit without any third party dependencies, only for the Chinese 
 
 ## 支持的短信渠道
 
-| 短信渠道        | 链接                                                                             | 推荐指数    |
-|-------------|--------------------------------------------------------------------------------|---------|
-| [x] 短信宝     | [https://www.smsbao.com/](https://www.smsbao.com/)                             | ⭐️⭐️⭐️⭐️ |
-| [x] 阿里云短信服务 | [https://www.aliyun.com/product/sms](https://www.aliyun.com/product/sms)       | ⭐️⭐     |
-| [x] 腾讯云短信 SMS  | [https://cloud.tencent.com/product/sms](https://cloud.tencent.com/product/sms) | ⭐️      |
+| 短信渠道      | 链接                                                                             | 支持版本      | 推荐指数     |
+|-----------|--------------------------------------------------------------------------------|-----------|----------|
+| 短信宝       | [https://www.smsbao.com/](https://www.smsbao.com/)                             | `v0.4.0`+ | ⭐️⭐️⭐️⭐️ |
+| 阿里云短信服务   | [https://www.aliyun.com/product/sms](https://www.aliyun.com/product/sms)       | `v0.1.0`+ | ⭐️⭐      |
+| 腾讯云短信 SMS | [https://cloud.tencent.com/product/sms](https://cloud.tencent.com/product/sms) | `v0.2.1`+ | ⭐️       |
 
 ## 安装
 
